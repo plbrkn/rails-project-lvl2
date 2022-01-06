@@ -14,9 +14,11 @@ rescue StandardError
   Rollbar.error(e)
 end
 
+# rubocop:disable Lint/RescueException
 begin
   Rails.application.initialize!
 rescue Exception => e
   notify.call(e)
   raise
 end
+# rubocop:enable Lint/RescueException
