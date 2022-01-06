@@ -39,7 +39,7 @@ linter-code-fix:
 	bundle exec rubocop -A
 
 deploy:
-	git push heroku master
+	git push heroku main
 
 heroku-console:
 	heroku run rails console
