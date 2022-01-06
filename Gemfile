@@ -15,10 +15,13 @@ gem "bootsnap", require: false
 
 gem "simple_form"
 gem "slim-rails"
+gem 'rollbar'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "sqlite3", "~> 1.4"
+  gem 'rubocop-rails', require: false
+  gem "slim_lint"
 end
 
 group :development do
