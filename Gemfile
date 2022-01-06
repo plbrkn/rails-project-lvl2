@@ -18,6 +18,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rollbar'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'devise'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
