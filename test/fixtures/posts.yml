@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  body: MyText
+  creator: one
+  post_category: one
+
+two:
+  name: MyString
+  body: MyText
+  creator: two
+  post_category: two
