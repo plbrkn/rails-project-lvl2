@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts, only: %i[new create]
+  resources :posts, only: %i[show new create] do
+    resources :comments, only: %i[create]
+  end
 end
