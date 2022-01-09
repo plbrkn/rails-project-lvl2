@@ -8,6 +8,11 @@ p
   strong Body:
   = @post.body
 
+- if @current_user_like.present?
+  = link_to 'Delete Like', post_like_path(@current_user_like, @post), method: 'delete', confirm: 'Are you sure?'
+- else
+  = link_to 'Like', post_likes_path(@post)
+
 = simple_form_for :post_comment, url: post_comments_path(@post), method: 'POST' do |f|
   = f.input :content, as: :text, label: false
   = f.button :submit, value: 'Add comment', class: 'btn btn-primary mt-3'
