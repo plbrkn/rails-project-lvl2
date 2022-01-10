@@ -23,5 +23,4 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  encoding: unicode
-  database: rails-project-lvl-2
+  url: <%= ENV['DATABASE_URL'] %>
