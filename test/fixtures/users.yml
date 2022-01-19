@@ -1,5 +1,5 @@
 one:
-  email: one-test@example.com
+  email: <%= Faker::Internet.email %>
 
 two:
-  email: two-test@example.com
+  email: <%= Faker::Internet.email %>

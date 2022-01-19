@@ -1,5 +1,5 @@
 one:
-  name: One
+  name: <%= Faker::Nation.capital_city %>
 
 two:
-  name: Two
+  name: <%= Faker::Nation.capital_city %>
