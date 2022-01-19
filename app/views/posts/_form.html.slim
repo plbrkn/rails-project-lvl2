@@ -5,7 +5,7 @@
   .form-inputs
     = f.input :name
     = f.input :body
-    = f.input :post_category_id, collection: @post_categorys, label: 'Category', wrapper_html: { class: 'mt-3' }
+    = f.input :post_category_id, collection: @post_categorys, label: t('category.title'), wrapper_html: { class: 'mt-3' }
 
   .form-actions
     = f.button :submit

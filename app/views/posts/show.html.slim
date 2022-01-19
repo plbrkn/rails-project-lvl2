@@ -1,22 +1,22 @@
 p#notice = notice
 
 p
-  strong Name:
+  strong> = t('post.author')
   = @post.name
 
 p
-  strong Body:
+  strong> = t('post.body')
   = @post.body
 
 - if @current_user_like.present?
-  = link_to 'Delete Like', post_like_path(@current_user_like, @post), method: 'delete', confirm: 'Are you sure?'
+  = link_to t('like.delete'), post_like_path(@current_user_like, @post), method: 'delete', confirm: 'Are you sure?'
 - else
-  = link_to 'Like', post_likes_path(@post)
+  = link_to t('like.add_like'), post_likes_path(@post)
 
 = simple_form_for :post_comment, url: post_comments_path(@post), method: 'POST' do |f|
   = f.input :content, as: :text, label: false
-  = f.button :submit, value: 'Add comment', class: 'btn btn-primary mt-3'
+  = f.button :submit, value: t('comment.add'), class: 'btn btn-primary mt-3'
 
 = render partial: 'posts/comments', locals: { comments: @post.comments.roots, post: @post }
 
-=< link_to 'Back', root_path
+=< link_to t('home.back'), root_path

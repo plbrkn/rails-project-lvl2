@@ -13,18 +13,18 @@ html
       .d-flex.flex-wrap.align-items-center.py-2.border-bottom
         .navbar.navbar-expand-md.navbar-light.me-auto
           a
-            img width='30' alt='Logo hexlet'
+            = image_tag "logo.png", height: 30, width: 30, alt: "Logo"
         ul.nav.nav-pills
           - if user_signed_in?
             li.nav-item.me-2
-              = link_to 'Добавить статью', new_post_path, class: 'nav-link link-dark'
+              = link_to t('post.add_post'), new_post_path, class: 'nav-link link-dark'
             li.nav-item.me-2
-              = link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link link-dark'
+              = link_to t('user.exit'), destroy_user_session_path, method: :delete, class: 'nav-link link-dark'
           - else
             li.nav-item.me-2
-              = link_to 'Войти', new_user_session_path, class: 'nav-link link-dark'
+              = link_to t('user.log_in'), new_user_session_path, class: 'nav-link link-dark'
             li.nav-item.me-2
-              = link_to 'Зарегистрироваться', new_user_registration_path, class: 'nav-link link-dark'
+              = link_to t('user.sign_up'), new_user_registration_path, class: 'nav-link link-dark'
       = yield
     p.notice = notice
     p.alert = alert
