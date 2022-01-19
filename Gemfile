@@ -9,7 +9,7 @@ gem 'bootsnap', require: false
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.0'
+gem 'rails', '~> 7.0.1'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
