@@ -3,7 +3,7 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
-    = f.input :name
+    = f.input :title
     = f.input :body
     = f.input :post_category_id, collection: @post_categorys, label: t('category.title'), wrapper_html: { class: 'mt-3' }
 

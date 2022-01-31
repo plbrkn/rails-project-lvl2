@@ -1,11 +1,11 @@
 one:
-  name: <%= Faker::Lorem.sentence %>
+  title: <%= Faker::Lorem.sentence %>
   body: MyText
   creator: one
   post_category: one
 
 two:
-  name: <%= Faker::Lorem.sentence %>
+  title: <%= Faker::Lorem.sentence %>
   body: <%= Faker::Lorem.paragraph %>
   creator: two
   post_category: two

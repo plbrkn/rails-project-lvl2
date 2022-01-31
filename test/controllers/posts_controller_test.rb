@@ -17,7 +17,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create post' do
     sign_in @user
-    post posts_url, params: { post: { name: 'New Post', body: 'New Body', post_category_id: @post.post_category.id } }
+    post posts_url, params: { post: { title: 'New Post', body: 'New Body', post_category_id: @post.post_category.id } }
     assert_redirected_to root_url
   end
 end
