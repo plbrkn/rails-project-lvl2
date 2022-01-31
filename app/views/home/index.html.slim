@@ -3,5 +3,5 @@ h1 = t('home.title')
 - @posts.each do |post|
     .card.mt-4.w-100
      .card-body
-       h4.card-title = link_to post.name, post, target: '_blank', rel: 'noopener'
+       h4.card-title = link_to post.title, post, target: '_blank', rel:  'noopener'
        p.card-text = post.body
