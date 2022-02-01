@@ -5,6 +5,11 @@ setup:
 	bin/setup
 	bin/rails db:fixtures:load
 
+install:
+	yarn install
+	bundle install
+	bin/rails webpacker:compile
+
 server:
 	bin/rails s
 
