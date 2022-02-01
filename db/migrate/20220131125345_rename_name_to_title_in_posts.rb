@@ -1,5 +1,5 @@
-class RenameNameToTitleInPosts < ActiveRecord::Migration[7.0]
+class RenameNameToTitleInPosts < ActiveRecord::Migration[6.1]
   def change
-      rename_column :posts, :name, :title
+    rename_column :posts, :name, :title
   end
 end
