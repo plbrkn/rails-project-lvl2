@@ -1,21 +1,24 @@
 p#notice = notice
 
+h1 = @post.title
+
+p = @post.body
+
 p
   strong> = t('post.author')
-  = @post.title
+  = @post.creator.email
+.like
+  = @likes_count
+  - if @current_user_like.present?
+    = link_to "🖤", post_like_path(@post, @current_user_like), method: 'delete', confirm: 'Are you sure?'
+  - else
+    = link_to "❤", post_likes_path(@post), method: :post
 
-p
-  strong> = t('post.body')
-  = @post.body
 
-- if @current_user_like.present?
-  = link_to t('like.delete'), post_like_path(@current_user_like, @post), method: 'delete', confirm: 'Are you sure?'
-- else
-  = link_to t('like.add_like'), post_likes_path(@post), method: :post
-
-= simple_form_for :post_comment, url: post_comments_path(@post), method: 'POST' do |f|
-  = f.input :content, as: :text, label: false
-  = f.button :submit, value: t('comment.add'), class: 'btn btn-primary mt-3'
+- if user_signed_in?
+  = simple_form_for :post_comment, url: post_comments_path(@post), method: 'POST' do |f|
+    = f.input :content, as: :text, label: false
+    = f.button :submit, value: t('comment.add'), class: 'btn btn-primary mt-3'
 
 = render partial: 'posts/comments', locals: { comments: @post.comments.roots, post: @post }
 

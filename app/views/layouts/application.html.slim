@@ -12,7 +12,7 @@ html
     .container.mb-2
       .d-flex.flex-wrap.align-items-center.py-2.border-bottom
         .navbar.navbar-expand-md.navbar-light.me-auto
-          a
+          = link_to root_path
             = image_tag 'logo.png', height: 30, width: 30, alt: 'Logo'
         ul.nav.nav-pills
           - if user_signed_in?

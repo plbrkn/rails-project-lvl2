@@ -1,2 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700");
+
+a {
+  text-decoration: none;
+}
+
+.like {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-group {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-group > .card {
+  border-right: none;
+  border-left: none;
+  padding-left: 1rem;
+}
+
+.card-group > .card:last-child {
+  border-bottom: none;
+}

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[create]
+
   def new
     @post = Post.new
     @post_categorys = PostCategory.all.map { |c| [c.name, c.id] }
