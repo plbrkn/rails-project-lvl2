@@ -16,7 +16,6 @@ gem 'webpacker', '~> 5.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'ancestry'
-gem 'bootstrap'
 gem 'devise'
 gem 'rollbar'
 gem 'simple_form'
