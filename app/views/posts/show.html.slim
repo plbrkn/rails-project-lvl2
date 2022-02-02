@@ -10,10 +10,9 @@ p
 .like
   = @likes_count
   - if @current_user_like.present?
-    = link_to "🖤", post_like_path(@post, @current_user_like), method: 'delete', confirm: 'Are you sure?'
+    = link_to '🖤', post_like_path(@post, @current_user_like), method: 'delete', confirm: 'Are you sure?'
   - else
-    = link_to "❤", post_likes_path(@post), method: :post
-
+    = link_to '❤', post_likes_path(@post), method: :post
 
 - if user_signed_in?
   = simple_form_for :post_comment, url: post_comments_path(@post), method: 'POST' do |f|
