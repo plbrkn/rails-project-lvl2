@@ -4,6 +4,8 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    return if post.likes.find_by(user: current_user)
+
     post.likes.create(user: current_user)
     redirect_to post
   end
