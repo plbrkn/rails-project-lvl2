@@ -5,7 +5,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post_categorys = PostCategory.all.map { |c| [c.name, c.id] }
   end
 
   def create
