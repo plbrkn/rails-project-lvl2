@@ -19,7 +19,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @likes_count = @post.likes.count
+    @likes_count = @post.post_likes_count
+    @comments = @post.comments.roots
     @current_user_like = @post.likes.find_by(user: current_user)
   end
 

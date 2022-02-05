@@ -15,6 +15,6 @@ p
 - if user_signed_in?
   = render partial: 'posts/comments/form', locals: { post: @post }
 
-= render partial: 'posts/comments/children', locals: { comments: @post.comments.roots, post: @post }
+= render partial: 'posts/comments/children', locals: { comments: @comments, post: @post }
 
 =< link_to t('home.back'), root_path
