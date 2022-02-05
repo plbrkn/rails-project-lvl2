@@ -10,6 +10,7 @@ AllCops:
     - "db/schema.rb"
     - "db/migrate/**"
     - "vendor/**/*"
+    - "config/**/*"
     - "node_modules/**/*"
 
 Style/Documentation:

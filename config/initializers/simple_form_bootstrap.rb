@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 SimpleForm.setup do |config|
   config.button_class = 'btn'
   config.boolean_label_class = 'form-check-label'
@@ -363,4 +362,3 @@ SimpleForm.setup do |config|
     time: :vertical_multi_select
   }
 end
-# rubocop:enable Metrics/BlockLength
