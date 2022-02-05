@@ -8,32 +8,31 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
     @post = posts(:one)
+    @params = {
+      content: Faker::Lorem.sentence
+    }
   end
 
   test 'should create post comment' do
     sign_in @user
-    post post_comments_path(@post), params: { post_comment: { content: 'New comment' } }
 
-    comment = PostComment.last
-
-    assert { comment.user == @user }
-    assert { comment.post == @post }
+    assert_difference('PostComment.count') do
+      post post_comments_path(@post), params: { post_comment: @params }
+    end
   end
 
   test 'should create post child comment' do
     sign_in @user
 
-    post post_comments_path(@post), params: { post_comment: { content: 'New comment' } }
+    assert_difference('PostComment.count') do
+      post post_comments_path(@post), params: { post_comment: @params }
+    end
 
     parent_comment = PostComment.last
 
-    post post_comments_path(@post, parent_comment.id),
-         params: { post_comment: { content: 'New comment1', parent_id: parent_comment.id } }
-
-    child_comment = PostComment.last
-
-    assert { parent_comment.user == child_comment.user }
-    assert { parent_comment.post == child_comment.post }
-    assert { parent_comment.id == child_comment.ancestry.to_i }
+    assert_difference('PostComment.count') do
+      post post_comments_path(@post, parent_comment.id),
+           params: { post_comment: { parent_id: parent_comment.id, **@params } }
+    end
   end
 end

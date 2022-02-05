@@ -8,6 +8,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
     @post = posts(:one)
+    @params = {
+      title: Faker::Lorem.sentence,
+      body: Faker::Lorem.sentence,
+      post_category_id: @post.post_category.id
+    }
+  end
+
+  test 'should get index' do
+    get root_url
+    assert_response :success
   end
 
   test 'should get new' do
@@ -18,7 +28,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create post' do
     sign_in @user
-    post posts_url, params: { post: { title: 'New Post', body: 'New Body', post_category_id: @post.post_category.id } }
+
+    assert_difference('Post.count') do
+      post posts_url, params: { post: @post.attributes }
+    end
     assert_redirected_to root_url
   end
 end
