@@ -16,10 +16,11 @@ class CommentsController < ApplicationController
     if ancestry
       post_comment.parent_id = ancestry.to_i
     end
-
-    post_comment.save
-
-    redirect_to post
+    if post_comment.save
+      redirect_to post, notice: t('comment.successfully')
+    else
+      redirect_to post, alert: t('comment.error')
+    end
   end
 
   private

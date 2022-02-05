@@ -20,5 +20,7 @@ en:
     sign_up: "Sign Up"
   comment:
     add: "Add Comment"
+    successfully: "Comment was successfully created"
+    error: "Comment has error"
   category:
     title: "Category"
