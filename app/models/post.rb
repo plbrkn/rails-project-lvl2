@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
+  paginates_per 2
+
   validates :title, presence: true
   validates :body, presence: true
 

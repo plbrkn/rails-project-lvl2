@@ -7,3 +7,6 @@ h1 = t('home.title')
          h4.card-title = post.title
        .card-body
          p.card-text = post.body
+
+= paginate(@posts)
+
