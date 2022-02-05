@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create]
+  before_action :authenticate_user!, only: %i[new create]
 
   def new
     @post = Post.new
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.creator = current_user
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to root_url, notice: t('post.successfully')
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @likes_count = @post.likes.count
-    @current_user_like = PostLike.find_by(post: @post, user: current_user)
+    @current_user_like = @post.likes.find_by(user: current_user)
   end
 
   private

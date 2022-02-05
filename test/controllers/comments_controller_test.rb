@@ -27,7 +27,8 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
     parent_comment = PostComment.last
 
-    post post_comments_path(@post, ancestry: parent_comment.id), params: { post_comment: { content: 'New comment1' } }
+    post post_comments_path(@post, parent_comment.id),
+         params: { post_comment: { content: 'New comment1', parent_id: parent_comment.id } }
 
     child_comment = PostComment.last
 
