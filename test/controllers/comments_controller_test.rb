@@ -19,6 +19,8 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('PostComment.count') do
       post post_comments_path(@post), params: { post_comment: @params }
     end
+
+    assert { PostComment.find_by(@params) }
   end
 
   test 'should create post child comment' do
@@ -34,5 +36,9 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
       post post_comments_path(@post, parent_comment.id),
            params: { post_comment: { parent_id: parent_comment.id, **@params } }
     end
+
+    assert { PostComment.find_by(@params) }
+
+    assert { PostComment.find_by({ ancestry: parent_comment.id, **@params }) }
   end
 end
