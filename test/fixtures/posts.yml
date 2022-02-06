@@ -9,3 +9,9 @@ two:
   body: <%= Faker::Lorem.paragraph %>
   creator: two
   post_category: two
+
+not_like:
+  title: <%= Faker::Lorem.sentence %>
+  body: <%= Faker::Lorem.paragraph %>
+  creator: one
+  post_category: pne

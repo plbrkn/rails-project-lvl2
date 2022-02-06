@@ -9,13 +9,15 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @post = posts(:one)
     @like = post_likes(:one)
+    @not_like_post = posts(:not_like)
   end
 
   test 'should create post like' do
     sign_in @user
-    post post_likes_path(@post)
 
-    assert { @post.likes.find_by(user_id: @user.id) }
+    post post_likes_path(@not_like_post)
+
+    assert { @not_like_post.likes.find_by(user_id: @user.id) }
   end
 
   test 'should delete post like' do
