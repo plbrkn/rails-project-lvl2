@@ -1,10 +1,10 @@
 - comments.each do |comment|
     .card.mt-4.w-100
       .card-header
-        p.card-text = comment.user.email
+        p.card-text = comment[:user_email]
       .card-body
-        p.card-text = comment.content
-        = render partial: 'posts/comments/form', locals: { post: @post, parent_id: comment.id }
-      - if comment.children.present?
+        p.card-text = comment[:content]
+        = render partial: 'posts/comments/form', locals: { post: @post, parent_id: comment[:id] }
+      - if comment[:children].present?
             .card-group
-              = render partial: 'posts/comments/children', locals: { comments: comment.children, post: post }
+              = render partial: 'posts/comments/children', locals: { comments: comment[:children], post: post }

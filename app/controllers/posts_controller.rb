@@ -20,7 +20,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @likes_count = @post.post_likes_count
-    @comments = @post.comments.roots
+    @comments = make_comments
+
     @current_user_like = @post.likes.find_by(user: current_user)
   end
 
@@ -28,5 +29,18 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :post_category_id)
+  end
+
+  def make_comments
+    PostComment.includes(:user)
+               .where(post_id: params[:id])
+               .arrange_serializable do |parent, children|
+      {
+        id: parent.id,
+        content: parent.content,
+        user_email: parent.user.email,
+        children: children
+      }
+    end
   end
 end
