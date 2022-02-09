@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | RailsProjectLvl2
+      = t('home.site_title')
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
@@ -19,7 +19,7 @@ html
       .d-flex.flex-wrap.align-items-center.py-2.border-bottom
         .navbar.navbar-expand-md.navbar-light.me-auto
           = link_to root_path
-            = image_tag 'logo.png', height: 30, width: 30, alt: 'Logo'
+            = image_tag 'logo.png', height: 30, width: 30, alt: t('home.logo_alt_text')
         ul.nav.nav-pills
           - if user_signed_in?
             li.nav-item.me-2

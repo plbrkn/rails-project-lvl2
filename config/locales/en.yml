@@ -1,5 +1,7 @@
 en:
   home:
+    site_title: "RailsProjectLvl2"
+    logo_alt_text: "Logo"
     title: "Posts"
     back: "Back"
   post:
