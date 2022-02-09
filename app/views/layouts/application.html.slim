@@ -9,6 +9,12 @@ html
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body.d-flex.flex-column.h-100
+
+    - if notice
+      .alert.alert-info.text-start = notice
+    - if alert
+      .alert.alert-danger.text-start = alert
+
     .container.mb-2
       .d-flex.flex-wrap.align-items-center.py-2.border-bottom
         .navbar.navbar-expand-md.navbar-light.me-auto
@@ -25,6 +31,5 @@ html
               = link_to t('user.log_in'), new_user_session_path, class: 'nav-link link-dark'
             li.nav-item.me-2
               = link_to t('user.sign_up'), new_user_registration_path, class: 'nav-link link-dark'
-      = yield
-    p.notice = notice
-    p.alert = alert
+      .container.my-4
+        = yield

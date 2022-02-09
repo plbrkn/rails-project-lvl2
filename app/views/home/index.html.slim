@@ -1,13 +1,14 @@
 h1 = t('home.title')
 
-- @posts.each do |post|
-    .card.mt-4.w-100
-       .card-header
-        = link_to post
-         h4.card-title = post.title
-       .card-body
-         p.card-text = post.body
-       .card-footer.text-muted
-          = time_ago_in_words(post.created_at)
+.row
+  - @posts.each do |post|
+    .col-md-12
+      .card.mb-3
+        .card-header
+          = link_to post
+            h4.card-title = post.title
+        .card-body
+          p.card-text = post.body
+        .card-footer.text-muted = time_ago_in_words(post.created_at)
 
 = paginate(@posts)

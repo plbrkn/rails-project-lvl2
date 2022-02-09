@@ -9,16 +9,16 @@ p
   strong> = t('post.created_at')
   = time_ago_in_words(@post.created_at)
 
-.like
+span.me-2
   = @likes_count
-  - if @current_user_like.present?
-    = link_to post_like_path(@post, @current_user_like), method: 'delete', confirm: 'Are you sure?' do
-      .fa-solid.fa-thumbs-up
-    end
-  - else
-    = link_to post_likes_path(@post), method: :post do
-      .fa-regular.fa-thumbs-up
-    end
+- if @current_user_like.present?
+  = link_to post_like_path(@post, @current_user_like), method: 'delete', confirm: 'Are you sure?' do
+    .fa-solid.fa-thumbs-up.ml-3
+  end
+- else
+  = link_to post_likes_path(@post), method: :post do
+    .fa-regular.fa-thumbs-up.ml-3
+  end
 
 - if user_signed_in?
   = render partial: 'posts/comments/form', locals: { post: @post }
