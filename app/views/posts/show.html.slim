@@ -5,6 +5,10 @@ p = @post.body
 p
   strong> = t('post.author')
   = @post.creator.email
+p
+  strong> = t('post.created_at')
+  = time_ago_in_words(@post.created_at)
+
 .like
   = @likes_count
   - if @current_user_like.present?

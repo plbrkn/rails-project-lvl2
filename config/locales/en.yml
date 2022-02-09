@@ -8,9 +8,10 @@ en:
     view_posts: "View Posts"
     edit_title: "Edit Post"
     new_title: "New Post"
-    author: "Author"
-    body: "Body"
+    author: "Author:"
+    body: "Body:"
     successfully: "Post was successfully created"
+    created_at: "Created at:"
   like:
     delete: "Delete"
     add_like: "Add Like"
