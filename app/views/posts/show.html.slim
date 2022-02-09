@@ -8,7 +8,7 @@ p
 .like
   = @likes_count
   - if @current_user_like.present?
-    = link_to post_like_path(@post,@current_user_like), method: 'delete', confirm: 'Are you sure?' do
+    = link_to post_like_path(@post, @current_user_like), method: 'delete', confirm: 'Are you sure?' do
       .fa-solid.fa-thumbs-up
     end
   - else
