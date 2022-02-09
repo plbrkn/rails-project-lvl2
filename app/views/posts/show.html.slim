@@ -8,9 +8,13 @@ p
 .like
   = @likes_count
   - if @current_user_like.present?
-    = link_to '🖤', post_like_path(@post, @current_user_like), method: 'delete', confirm: 'Are you sure?'
+    = link_to post_like_path(@post,@current_user_like), method: 'delete', confirm: 'Are you sure?' do
+      .fa-solid.fa-thumbs-up
+    end
   - else
-    = link_to '❤', post_likes_path(@post), method: :post
+    = link_to post_likes_path(@post), method: :post do
+      .fa-regular.fa-thumbs-up
+    end
 
 - if user_signed_in?
   = render partial: 'posts/comments/form', locals: { post: @post }
