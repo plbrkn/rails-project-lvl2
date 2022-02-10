@@ -29,11 +29,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'should create post' do
     sign_in @user
 
-    assert_difference('Post.count') do
-      post posts_url, params: { post: @params }
-    end
-    assert_redirected_to root_url
+    post posts_url, params: { post: @params }
 
+    assert_redirected_to root_url
     assert { Post.find_by(@params) }
   end
 end
